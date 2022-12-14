@@ -1,9 +1,9 @@
 {{ $src := .Page.Resources.GetMatch (printf "*%s*" (.Get "src")) }}
-
+{{ $image := $src.Resize "600x" }}
 {{ if .Get "caption"}}
 <figure class="article-figure">
 {{ end }}
-    <img class="article-image" src="{{ $src.RelPermalink }}" {{ with .Get "alt" }}alt="{{.}}"{{ else }}alt=""{{ end }}>
+    <img class="article-image" src="{{ $image.RelPermalink }}" {{ with .Get "alt" }}alt="{{.}}"{{ else }}alt=""{{ end }}>
     {{ if .Get "caption"}}
         <figcaption>{{ .Get "caption" }}</figcaption>
 </figure>
